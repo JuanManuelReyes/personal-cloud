@@ -114,3 +114,4 @@
 7.  Reconfigurar el archivo `config.php` de Nextcloud (`nano /var/www/html/nextcloud/config/config.php`).
     
 8.  No es necesario modificar el archivo creado por Certbot porque heredó la configuración de nuestro `nextcloud.conf`.
+
