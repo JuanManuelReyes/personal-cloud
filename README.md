@@ -47,7 +47,7 @@
     mysql -u root -p
     CREATE USER ‘nextcloud’@’localhost’ IDENTIFIED BY ‘nextcloud1234’;
 ```
-   4.  Crear la base de datos para Nextcloud:
+4.  Crear la base de datos para Nextcloud:
 ```
     CREATE DATABASE nextcloud;
 ```
@@ -57,3 +57,60 @@
     FLUSH PRIVILEGES;
  ```
 6.  Salir de la base de datos con `exit`.
+
+### Instalación y Configuración de Apache:
+
+1.  Instalar Apache:
+```
+	sudo apt install -y apache2 libapache2-mod-php
+```
+2.  Crear el Virtual Host:
+    
+    A. Navegar a la carpeta de los sitios disponibles de Apache (`cd /etc/apache2/sites-available/`).
+    
+    B. Copiar la configuración del archivo default a un archivo para nuestro Nextcloud (`cp 000-default.conf nextcloud.conf`).
+    
+    C. Deshabilitar el sitio por defecto y habilitar nuestro sitio de Nextcloud (`a2dissite 000-default.conf && systemctl reload apache2`).
+    
+    D. Modificar el archivo `nextcloud.conf` (usar `nano nextcloud.conf`) y modificar la línea de `DocumentRoot` para que apunte a la carpeta de Nextcloud: `DocumentRoot /var/www/html/nextcloud`.
+    
+3.  Habilitar módulos necesarios:
+```
+	a2enmod rewrite dir mime env headers
+```
+4.  Crear la carpeta de Nextcloud (`mkdir /var/www/html/nextcloud`) y asignar los permisos adecuados al usuario `www-data`:
+
+```
+	chmod 750 /var/www/html/nextcloud/
+	chown www-data:www-data /var/www/html/nextcloud/
+```
+5.  Descargar el archivo instalador de Nextcloud:
+```
+	cd /var/www/html/nextcloud 
+	wget https://download.nextcloud.com/server/installer/setup-nextcloud.php 
+	chown www-data:www-data setup-nextcloud.php
+```
+6.  Habilitar el sitio (`a2ensite nextcloud.conf && systemctl reload apache2`).
+
+### Configuración del sitio web:
+
+1.  Cada persona que dé de alta un servidor de Nextcloud puede configurarlo a su manera. En nuestro caso, vamos a hacer que el servidor tenga un certificado ssl (https) con un dominio personalizado.
+    
+2.  Conseguir un dominio DDNS de [freemyip.com](https://freemyip.com/).
+    
+3.  Comprobar la dirección con `curl` y el enlace que nos dio la página.
+```
+	curl https://freemyip.com/update?token=71c9d8bac78d46bda97c550c&domain=nextcloudobl2.freemyip.com
+```
+4.  Añadir un cronjob para mantener actualizada la IP:
+```
+crontab -e
+* * * * * curl https://freemyip.com/update?token=71c9d8bac78d46bda97c550c&domain=nextcloudobl2.freemyip.com
+```
+5.  Configurar el router del servidor para permitir la redirección de puertos a los puertos 80 y 443.
+    
+6.  Conseguir un certificado de seguridad con [Certbot](https://certbot.eff.org/).
+    
+7.  Reconfigurar el archivo `config.php` de Nextcloud (`nano /var/www/html/nextcloud/config/config.php`).
+    
+8.  No es necesario modificar el archivo creado por Certbot porque heredó la configuración de nuestro `nextcloud.conf`.
