@@ -139,7 +139,8 @@ Es importante mantener tu servidor NextCloud actualizado para asegurarte de que 
 Si encuentras problemas, hay varios lugares donde puedes buscar ayuda:
 
 - La [documentación oficial de NextCloud](https://docs.nextcloud.com/)
-- Los [foros de NextCloud](https://help.nextcloud.com/) 
+- Los [foros de NextCloud](https://help.nextcloud.com/)
+
 ## Seguridad 
 
 Recuerda que es importante mantener tu servidor NextCloud seguro. Algunos pasos que puedes seguir incluyen:
