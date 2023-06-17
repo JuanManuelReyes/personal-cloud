@@ -1,5 +1,12 @@
 # Documentación del Proyecto: Servidor NextCloud
 
+Este proyecto tiene como objetivo ayudarte a instalar y configurar tu propio servidor NextCloud. NextCloud es una solución de almacenamiento en la nube de código abierto, que te permite mantener el control sobre tus propios datos.
+
+## Requisitos previos Antes de comenzar, asegúrate de tener lo siguiente:
+- Conocimientos básicos de administración de sistemas Linux, incluyendo cómo trabajar con la línea de comandos. 
+- Una máquina con Ubuntu 20.04 (versión server o desktop).
+- Acceso a internet para descargar los paquetes necesarios
+
 ## Software necesario:
 
 -   Ubuntu 20.04 (versión server o desktop)
@@ -104,8 +111,8 @@
 ```
 4.  Añadir un cronjob para mantener actualizada la IP:
 ```
-	crontab -e
-	* * * * * curl https://freemyip.com/update?token=71c9d8bac78d46bda97c550c&domain=nextcloudobl2.freemyip.com
+crontab -e
+* * * * * curl https://freemyip.com/update?token=71c9d8bac78d46bda97c550c&domain=nextcloudobl2.freemyip.com
 ```
 5.  Configurar el router del servidor para permitir la redirección de puertos a los puertos 80 y 443.
     
@@ -115,3 +122,28 @@
     
 8.  No es necesario modificar el archivo creado por Certbot porque heredó la configuración de nuestro `nextcloud.conf`.
 
+## Solución de problemas 
+
+Aquí podrías listar algunos problemas comunes que pueden surgir durante la instalación y cómo solucionarlos. Por ejemplo: 
+- Problema: "El comando `sudo apt update` falla con un error de DNS." 
+- Solución: Verifica que tu conexión a Internet esté funcionando y que tu archivo `/etc/resolv.conf` esté configurado correctamente. 
+## Verificación final 
+
+Una vez completada la instalación, puedes verificar que todo esté funcionando correctamente de la siguiente manera: 
+
+- Accede a tu instalación de NextCloud a través de un navegador web. Deberías ver la interfaz de NextCloud y poder iniciar sesión con el usuario administrador que creaste durante la instalación. 
+## Mantenimiento y soporte 
+
+Es importante mantener tu servidor NextCloud actualizado para asegurarte de que estás protegido contra cualquier vulnerabilidad de seguridad que pueda haber sido descubierta. Puedes hacer esto ejecutando `sudo apt update` y `sudo apt upgrade` regularmente. 
+
+Si encuentras problemas, hay varios lugares donde puedes buscar ayuda:
+
+- La [documentación oficial de NextCloud](https://docs.nextcloud.com/)
+- Los [foros de NextCloud](https://help.nextcloud.com/) 
+## Seguridad 
+
+Recuerda que es importante mantener tu servidor NextCloud seguro. Algunos pasos que puedes seguir incluyen:
+- Configurar un firewall para proteger tu servidor. 
+- Asegurarte de que todas las comunicaciones con tu servidor estén cifradas utilizando SSL. 
+- Implementar políticas de contraseñas fuertes para los usuarios de tu servidor NextCloud. 
+- Considerar la posibilidad de utilizar autenticación de dos factores para añadir una capa adicional de seguridad.
