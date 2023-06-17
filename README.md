@@ -43,10 +43,10 @@
     E. Actualizar todos los privilegios de las tablas.
     
 3.  Crear un usuario para Nextcloud:
-
+```
     mysql -u root -p
     CREATE USER ‘nextcloud’@’localhost’ IDENTIFIED BY ‘nextcloud1234’;
-   
+```
    4.  Crear la base de datos para Nextcloud:
 
 	    CREATE DATABASE nextcloud;
