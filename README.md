@@ -44,16 +44,16 @@
     
 3.  Crear un usuario para Nextcloud:
 ```
-mysql -u root -p
-CREATE USER ‘nextcloud’@’localhost’ IDENTIFIED BY ‘nextcloud1234’;
+    mysql -u root -p
+    CREATE USER ‘nextcloud’@’localhost’ IDENTIFIED BY ‘nextcloud1234’;
 ```
    4.  Crear la base de datos para Nextcloud:
 ```
-CREATE DATABASE nextcloud;
+    CREATE DATABASE nextcloud;
 ```
 5.  Otorgar todos los privilegios al usuario Nextcloud:
 ```
-GRANT ALL PRIVILEGES ON nextcloud.* TO ‘nextcloud’@’localhost’;
-FLUSH PRIVILEGES;
+    GRANT ALL PRIVILEGES ON nextcloud.* TO ‘nextcloud’@’localhost’;
+    FLUSH PRIVILEGES;
  ```
 6.  Salir de la base de datos con `exit`.
