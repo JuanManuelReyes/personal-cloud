@@ -104,8 +104,8 @@
 ```
 4.  Añadir un cronjob para mantener actualizada la IP:
 ```
-crontab -e
-* * * * * curl https://freemyip.com/update?token=71c9d8bac78d46bda97c550c&domain=nextcloudobl2.freemyip.com
+	crontab -e
+	* * * * * curl https://freemyip.com/update?token=71c9d8bac78d46bda97c550c&domain=nextcloudobl2.freemyip.com
 ```
 5.  Configurar el router del servidor para permitir la redirección de puertos a los puertos 80 y 443.
     
