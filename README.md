@@ -62,7 +62,7 @@
 
 1.  Instalar Apache:
 ```
-	sudo apt install -y apache2 libapache2-mod-php
+sudo apt install -y apache2 libapache2-mod-php
 ```
 2.  Crear el Virtual Host:
     
