@@ -62,7 +62,7 @@
 
 1.  Instalar Apache:
 ```
-sudo apt install -y apache2 libapache2-mod-php
+	sudo apt install -y apache2 libapache2-mod-php
 ```
 2.  Crear el Virtual Host:
     
@@ -76,7 +76,7 @@ sudo apt install -y apache2 libapache2-mod-php
     
 3.  Habilitar módulos necesarios:
 ```
-a2enmod rewrite dir mime env headers
+	a2enmod rewrite dir mime env headers
 ```
 4.  Crear la carpeta de Nextcloud (`mkdir /var/www/html/nextcloud`) y asignar los permisos adecuados al usuario `www-data`:
 
