@@ -126,7 +126,11 @@ crontab -e
 
 Aquí podrías listar algunos problemas comunes que pueden surgir durante la instalación y cómo solucionarlos. Por ejemplo: 
 - Problema: "El comando `sudo apt update` falla con un error de DNS." 
-- Solución: Verifica que tu conexión a Internet esté funcionando y que tu archivo `/etc/resolv.conf` esté configurado correctamente. 
+- Solución: Verifica que tu conexión a Internet esté funcionando y que tu archivo `/etc/resolv.conf` esté configurado correctamente.
+- Problema: Dificultades con la configuración inicial y la creación de usuarios.
+- Solucion: Sigue la documentación para la configuración inicial de NextCloud en MariaDB y la creación de usuarios. Verifica los comandos y la sintaxis, especialmente comillas y espacios.
+- Problema: Error al acceder a la instalación de NextCloud desde un navegador web.
+- Solucion: Verifica que los puertos 80 y 443 estén abiertos en el servidor, que la dirección DDNS y el SSL estén bien configurados. Revisa también las configuraciones de Apache y NextCloud.
 ## Verificación final 
 
 Una vez completada la instalación, puedes verificar que todo esté funcionando correctamente de la siguiente manera: 
